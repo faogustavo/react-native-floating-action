@@ -43,6 +43,9 @@ class FloatingAction extends Component {
   animateButton = () => {
     if (!this.state.active) {
       Animated.spring(this.animation, { toValue: 1 }).start();
+      if (this.props.onMainButtonPress) {
+        this.props.onMainButtonPress();
+      }
 
       // only execute it for the background to prevent extra calls
       LayoutAnimation.configureNext({
